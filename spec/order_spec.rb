@@ -8,14 +8,14 @@ describe Order do
       expect(order.total).to eq(0)
     end
 
-    it '' do
-      expect(order.items).to eq({})
+    it 'initializes with an empty hash' do
+      expect(order.entries).to eq({})
     end
   end
 
   describe '#print_item' do
     it 'returns a number of a given item' do
-      expect(order.print_item(2, 'Cafe Latte')).to eq '2 x Cafe Latte'
+      expect(order.print_item(2, 'Cafe Latte')).to eq 'Cafe Latte 2 x 4.75'
     end
   end
 end
