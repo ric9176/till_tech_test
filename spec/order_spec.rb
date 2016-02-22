@@ -13,9 +13,26 @@ describe Order do
     end
   end
 
-  describe '#print_item' do
+  describe '#add' do
     it 'returns a number of a given item' do
-      expect(order.print_item(2, 'Cafe Latte')).to eq 'Cafe Latte 2 x 4.75'
+      expect(order.add(2, 'Cafe Latte')).to eq 'Cafe Latte 2 x 4.75'
     end
+
+
+
+    it 'adds item price * quantity to the total' do
+      order.add(2, 'Cafe Latte')
+      expect(order.total).to eq 9.50
+    end
+
+
+
+    it 'adds items to the entries hash' do
+      order.add(2, 'Cafe Latte')
+      expect(order.entries).to include("Cafe Latte" => 2)
+    end
+
   end
+
+
 end
